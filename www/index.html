@@ -67,6 +67,50 @@
                 })
         }
 
+        function searchAttackLTE() {
+            let attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .lessThanOrEqualTo("attack", attack)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchAttackGTE() {
+            let attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .greaterThanOrEqualTo("attack", attack)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchDefenceLT() {
+            let defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .lessThan("defence", defence)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchDefenceGT() {
+            let defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .greaterThan("defence", defence)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
         function searchRandom(){
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass.fetchAll()
@@ -125,7 +169,7 @@
     </div>
     <div>
         <label for="attack">attack:</label>
-        <input id="attck" type="number" placeholder="monster attack">
+        <input id="attack" type="number" placeholder="monster attack">
     </div>
      <div>
         <label for="defence">defence:</label>
@@ -135,13 +179,12 @@
         <button class="btn" onclick="fetchAll()">Fetch All</button>
         <button class="btn" onclick="searchName()">Name</button><br>
         <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
-        
         <button class="btn" onclick="searchLevelGT()">Level &gt;</button>
-        <button class="btn" onclick="searchRandom()">Random</button><br>
         <button class="btn" onclick="searchAttackLTE()">Attack &lt;=</button>
         <button class="btn" onclick="searchAttackGTE()">Attack &gt;=</button><br>
         <button class="btn" onclick="searchDefenceLT()">Defence &lt;</button>
         <button class="btn" onclick="searchDefenceGT()">Defence &gt;</button>
+        <button class="btn" onclick="searchRandom()">Random</button><br>
     </div>
     <div id="message">message area</div>
 </body>
