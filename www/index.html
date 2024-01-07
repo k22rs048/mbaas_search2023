@@ -138,26 +138,6 @@
             return indexes.slice(0, count);
         }
 
-        function deleteFirstData(){
-            let UTdata = ncmb.DataStore(db);
-            UTdata.fetch()
-            .then(function(results) {
-                if (results.length > 0) {
-                    const firstData = results[0];
-                    return firstData.delete();
-                }else{
-                    console.log("No data found for deletion.");
-                    throw new Error("No data found for deletion.");
-                }
-            })
-            .then(function(deletedData) {
-                console.log("Deletion success:", deletedData);
-            })
-            .catch(function(error){
-                console.error("Deletion error:", error);
-            });
-        }
-
         function showResults(results) {
             // テーブルのヘッダを生成
             let msg = "<table><tr><th>name</th><th>Lvl</th><th>attr</th><th>race</th><th>attack</th><th>defence</th></tr>";
@@ -207,7 +187,6 @@
         <button class="btn" onclick="searchDefenceLT()">Defence &lt;</button>
         <button class="btn" onclick="searchDefenceGT()">Defence &gt;</button>
         <button class="btn" onclick="searchRandom()">Random</button><br>
-        <button class="btn" onclick="deleteFirstData()">Delete</button>
     </div>
     <div id="message">message area</div>
 </body>
