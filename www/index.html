@@ -111,32 +111,28 @@
                 })
         }
 
+        function getRandomIndex(max){
+            return Math.floor(Math.random() * max);
+        }
+
         function searchRandom(){
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass.fetchAll()
                 .then(function (allData) {
-                    if (allData.length < 2) {
-                        console.log("データが2つ以上ありません。");
+                    if (allData.length < 1) {
+                        console.log("データがありません。");
                         return;
                     }
 
-                    const randomIndexes = getRandomIndexes(allData.length, 2);
-                    const randomData = randomIndexes.map(index => allData[index]);
-                    showResults(randomData);
+                    const randomIndex = getRandomIndex(allData.length);
+                    const randomData = allData[randomIndex];
+                    showResults([randomData]);
                 })
                 .catch(function (error) {
                     console.error("データの取得エラー:", error);
                 });
         }
 
-        function getRandomIndexes(max, count){
-            const indexes = Array.from({ length: max }, (_, index) => index);
-            for (let i = indexes.length - 1; i > 0; i--){
-                const j = Math.floor(Math.random() * (i + 1));
-                [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
-            }
-            return indexes.slice(0, count);
-        }
 
         function showResults(results) {
             // テーブルのヘッダを生成
