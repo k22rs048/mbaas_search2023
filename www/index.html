@@ -162,27 +162,24 @@
         <input id="name" type="text" placeholder="monster name">
     </div>
     <div>
-        <label for="level">level:</label>
-        <input id="level" type="number" placeholder="monster level">
+        <label for="attribute">attribute:</label>
+        <input id="attribute" type="text" placeholder="monster attribute">
     </div>
     <div>
-        <label for="attack">attack:</label>
-        <input id="attack" type="number" placeholder="monster attack">
+        <label for="race">race:</label>
+        <input id="race" type="text" placeholder="monster race">
     </div>
-     <div>
-        <label for="defence">defence:</label>
-        <input id="defence" type="number" placeholder="monster defence">
-    </div>
+    
     <div id="button">
         <button class="btn" onclick="fetchAll()">Fetch All</button>
         <button class="btn" onclick="searchName()">Name</button><br>
-        <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
-        <button class="btn" onclick="searchLevelGT()">Level &gt;</button>
-        <button class="btn" onclick="searchAttackLTE()">Attack &lt;=</button>
-        <button class="btn" onclick="searchAttackGTE()">Attack &gt;=</button><br>
-        <button class="btn" onclick="searchDefenceLT()">Defence &lt;</button>
-        <button class="btn" onclick="searchDefenceGT()">Defence &gt;</button>
-        <button class="btn" onclick="searchRandom()">Random</button><br>
+        <button class="btn" onclick="searchAttribute()">attr</button>
+        <button class="btn" onclick="searchRace()">race</button>
+        <button class="btn" onclick="sortNameUp()">Name ↑</button>
+        <button class="btn" onclick="sortNameDown()">Name ↓</button><br>
+        <button class="btn" onclick="sortLevelUp()">Level ↑</button>
+        <button class="btn" onclick="sortLevelDown()">Level ↓</button>
+        <button class="btn" onclick="searchRandom()">Lucky Monster</button><br>
     </div>
     <div id="message">message area</div>
 </body>
