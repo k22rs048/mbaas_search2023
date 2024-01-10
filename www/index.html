@@ -56,6 +56,32 @@
                 })
         }        
 
+        function sortNameUp() {
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.order("name", true).fetchAll()
+                .then(function (results) {
+                    showResults(results);
+                })
+                .catch(function (error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("delete fail:" + JSON.stringify(error));
+                });
+        }
+
+        function sortNameDown() {
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.order("name", false).fetchAll()
+                .then(function (results) {
+                    showResults(results);
+                })
+                .catch(function (error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("delete fail:" + JSON.stringify(error));
+                });
+        }
+
         function getRandomIndex(max){
             return Math.floor(Math.random() * max);
         }
