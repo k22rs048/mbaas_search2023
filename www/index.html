@@ -43,6 +43,17 @@
                 .then(function(results) {
                     showResults(results);
                 })
+        } 
+
+        function searchRace() {
+            let race = $("#race").val();
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .equalTo("race", race)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
         }        
 
         function getRandomIndex(max){
